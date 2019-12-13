@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccnu.phdsic.mapper.Mapper_2_2_6">
+    <insert id="insert226">
+
+        insert into `academic_appointment_2_2_6_shidian`  values (
+
+        #{tutorIdentificationCode},
+      #{jobTitle},
+        #{jobLevel},
+      #{employmentOrganization},
+      #{organizationType},
+       #{startOfOffice}
+
+
+        );
+
+    </insert>
+    <update id="updateinfo_2_2_6">
+
+        update `academic_appointment_2_2_6_shidian` set
+
+
+       job_title =  #{jobTitle},
+        job_level = #{jobLevel},
+      employment_organization =   #{employmentOrganization},
+     organization_type =    #{organizationType},
+       start_of_office =  #{startOfOffice}
+    where tutor_identification_code = #{tutorIdentificationCode}
+        ;
+
+    </update>
+    <delete id="delete226">
+
+                delete  from `academic_appointment_2_2_6_shidian` where tutor_identification_code = #{phdId};
+    </delete>
+    <delete id="deleteAll">
+        delete  from  `academic_appointment_2_2_6_shidian`;
+    </delete>
+    <delete id="deleteById">
+        delete  from `academic_appointment_2_2_6_shidian` where `tutor_identification_code` = #{id}
+    </delete>
+    <select id="getTable_2_2_6" resultType="com.ccnu.phdsic.entities.AcademicAppointment_2_2_6_shidian">
+        select * from `academic_appointment_2_2_6_shidian` where tutor_identification_code = #{phdId};
+    </select>
+
+    <select id="getAll" resultType="com.ccnu.phdsic.entities.AcademicAppointment_2_2_6_shidian">
+        select * from `academic_appointment_2_2_6_shidian`;
+    </select>
+    <select id="getInfoByCollege" resultType="com.ccnu.phdsic.entities.AcademicAppointment_2_2_6_shidian">
+        select * from `academic_appointment_2_2_6_shidian` where college = #{collegeName};
+    </select>
+</mapper>

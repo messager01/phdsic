@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccnu.phdsic.mapper.Mapper_2_2_3">
+    <insert id="updateinfo_2_2_3">
+
+    update  `publication_status_2_2_3_shiqi`  set
+
+
+
+    book_name=#{bookName},
+
+   book_type= #{bookType},
+
+    publishing_house=#{publishingHouse},
+
+   publisher_country= #{publisherCountry},
+
+    total_number_of_words=#{totalNumberOfWords},
+
+    number_of_issues=#{numberOfIssues},
+
+    publication_date=#{publicationDate},
+
+    book_number=#{bookNumber},
+
+   `language`= #{language},
+
+   role= #{role}
+
+    where
+ tutor_identification_code = #{tutorIdentificationCode}
+
+    ;
+
+
+    </insert>
+    <insert id="insert223">
+
+
+        insert into `publication_status_2_2_3_shiqi`  values (
+
+
+ #{tutorIdentificationCode},
+
+    #{bookName},
+
+   #{bookType},
+
+    #{publishingHouse},
+
+    #{publisherCountry},
+
+    #{totalNumberOfWords},
+
+    #{numberOfIssues},
+
+    #{publicationDate},
+
+    #{bookNumber},
+
+    #{language},
+
+    #{role}
+
+
+
+
+        );
+
+    </insert>
+    <delete id="delete223">
+
+                delete  from `publication_status_2_2_3_shiqi` where tutor_identification_code = #{phdId};
+    </delete>
+    <delete id="deleteAll">
+        delete  from `publication_status_2_2_3_shiqi`;
+    </delete>
+    <delete id="deleteById">
+        delete  from `publication_status_2_2_3_shiqi` where `tutor_identification_code` = #{id}
+    </delete>
+    <select id="getTable_2_2_3" resultType="com.ccnu.phdsic.entities.PublicationStatus_2_2_3_shiqi">
+        select * from `publication_status_2_2_3_shiqi` where tutor_identification_code = #{phdId};
+    </select>
+    <select id="getAll" resultType="com.ccnu.phdsic.entities.PublicationStatus_2_2_3_shiqi">
+
+        select * from `publication_status_2_2_3_shiqi`;
+    </select>
+    <select id="getInfoByCollege" resultType="com.ccnu.phdsic.entities.PublicationStatus_2_2_3_shiqi">
+        select * from `publication_status_2_2_3_shiqi` where college = #{collegeName}
+    </select>
+</mapper>

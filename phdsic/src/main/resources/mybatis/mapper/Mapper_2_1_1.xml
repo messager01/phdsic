@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccnu.phdsic.mapper.Mapper_2_1_1">
+    <insert id="insert211">
+
+        insert into `course_status_2_1_1_shiqi`  values (
+
+  #{tutorIdentificationCode},
+        #{courseNumber},
+  #{courseName},
+  #{courseType},
+   #{courseNature},
+  #{teachingHours},
+   #{courseObject},
+  #{numberOfStudents}
+
+
+
+
+
+
+        );
+    </insert>
+    <update id="updateinfo_2_1_1">
+
+   update `course_status_2_1_1_shiqi` set
+  `course_number` = #{courseNumber},
+  `course_name` = #{courseName},
+  `course_type` = #{courseType},
+  `course_nature` = #{courseNature},
+  `teaching_hours` = #{teachingHours},
+  `course_object` = #{courseObject},
+  `number_of_students` = #{numberOfStudents}
+
+  where `tutor_identification_code` = #{tutorIdentificationCode}
+
+
+    </update>
+    <delete id="delete211">
+                delete  from `course_status_2_1_1_shiqi` where tutor_identification_code = #{phdId};
+
+    </delete>
+    <delete id="deleteAll">
+         delete  from `course_status_2_1_1_shiqi`;
+    </delete>
+
+    <delete id="deleteById">
+        delete from `course_status_2_1_1_shiqi` where tutor_identification_code = #{id};
+    </delete>
+
+    <select id="getTable_2_1_1" resultType="com.ccnu.phdsic.entities.CourseStatus_2_1_1_shiqi">
+        select * from `course_status_2_1_1_shiqi` where tutor_identification_code = #{phdId};
+    </select>
+    <select id="getAll" resultType="com.ccnu.phdsic.entities.CourseStatus_2_1_1_shiqi">
+
+        select * from  `course_status_2_1_1_shiqi`;
+    </select>
+    <select id="getInfoByCollege" resultType="com.ccnu.phdsic.entities.CourseStatus_2_1_1_shiqi">
+
+        select * from `course_status_2_1_1_shiqi` where college = #{collegeName};
+    </select>
+</mapper>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccnu.phdsic.mapper.Mapper_2_2_1">
+    <insert id="insert221">
+
+        insert into `research_papers_2_2_1shiqi` values (
+
+            #{tutorIdentificationCode},
+         #{paperName},
+     #{paperType},
+    #{journalName},
+     #{issueNumber},
+     #{publishingLanguage},
+     #{DOI},
+    #{whetherEsIIsIncluded},
+     #{index},
+     #{authorOrder},
+     #{whetherCorrespondingAuthor}
+
+
+        );
+
+    </insert>
+    <update id="updateinfo_2_2_1">
+
+    update `research_papers_2_2_1shiqi` set
+    `paper_name` = #{paperName},
+    `paper_type` = #{paperType},
+    `journal_name` = #{journalName},
+    `issue_number` = #{issueNumber},
+    `publishing_language` = #{publishingLanguage},
+    `DOI` = #{DOI},
+    `whether_esi_is_included` = #{whetherEsIIsIncluded},
+    `index` = #{index},
+    `author_order` = #{authorOrder},
+    `whether_corresponding_author` = #{authorOrder}
+    where `tutor_identification_code` = #{tutorIdentificationCode}
+
+    </update>
+    <delete id="delete221">
+                delete  from `research_papers_2_2_1shiqi` where tutor_identification_code = #{phdId};
+    </delete>
+    <delete id="deleteAll">
+        delete  from `research_papers_2_2_1shiqi`;
+
+    </delete>
+    <delete id="deleteById">
+      delete from `research_papers_2_2_1shiqi` where `tutor_identification_code` = #{id}
+    </delete>
+
+    <select id="getTable_2_2_1" resultType="com.ccnu.phdsic.entities.ResearchPapers_2_2_1shiqi">
+        select * from `research_papers_2_2_1shiqi` where tutor_identification_code = #{phdId};
+    </select>
+    <select id="getAll" resultType="com.ccnu.phdsic.entities.ResearchPapers_2_2_1shiqi">
+      select * from `research_papers_2_2_1shiqi`;
+    </select>
+    <select id="getInfoByCollege" resultType="com.ccnu.phdsic.entities.ResearchPapers_2_2_1shiqi">
+      select * from `research_papers_2_2_1shiqi` where college = #{collegeName};
+    </select>
+</mapper>

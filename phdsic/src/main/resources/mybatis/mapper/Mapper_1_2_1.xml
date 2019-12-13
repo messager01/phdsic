@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccnu.phdsic.mapper.Mapper_1_2_1">
+    <insert id="insert121">
+
+        insert into `research_project_situation_1_2_1_shiqi` values (
+
+
+#{tutorIdentificationCode},
+    #{projectName},
+    #{projectDate},
+     #{projectNumber},
+     #{projectType},
+    #{verticalProjectType},
+    #{projectStatus},
+    #{sortUnitByFillInForm},
+     #{domesticProjectContractAmount},
+     #{abroadProjectContractAmount},
+   #{accumulatedItems},
+    #{projectYearToPayment},
+    #{finalAcceptanceOrIdentificationTime},
+    #{role}
+
+
+
+
+
+        )
+    </insert>
+
+
+    <update id="updateinfo_1_2_1">
+
+    update `research_project_situation_1_2_1_shiqi` set
+
+    `project_name` = #{projectName},
+    `project_date` = #{projectDate},
+    `project_number` = #{projectNumber},
+    `project_type` = #{projectType},
+    `vertical_project_type` = #{verticalProjectType},
+    `project_status` = #{projectStatus},
+    `sort_unit_by_fill_in_form` = #{sortUnitByFillInForm},
+    `domestic_project_contract_amount` = #{domesticProjectContractAmount},
+    `abroad_project_contract_amount` = #{abroadProjectContractAmount},
+    `accumulated_items` = #{accumulatedItems},
+    `project_year_to_payment` = #{projectYearToPayment},
+    `final_acceptance_or_identification_time` = #{finalAcceptanceOrIdentificationTime},
+    `role` = #{role}
+
+    where `tutor_identification_code` = #{tutorIdentificationCode}
+
+    </update>
+    <delete id="delete121">
+                delete from research_project_situation_1_2_1_shiqi where tutor_identification_code = #{phdId};
+    </delete>
+    <delete id="deleteAll">
+
+          delete from research_project_situation_1_2_1_shiqi;
+    </delete>
+    <delete id="deleteById">
+        delete from `research_project_situation_1_2_1_shiqi` where tutor_identification_code = #{id}
+
+    </delete>
+
+    <select id="getTable_1_2_1" resultType="com.ccnu.phdsic.entities.ResearchProjectSituation_1_2_1_shiqi">
+        select * from `research_project_situation_1_2_1_shiqi` where tutor_identification_code = #{phdId};
+    </select>
+
+
+    <select id="getAll" resultType="com.ccnu.phdsic.entities.ResearchProjectSituation_1_2_1_shiqi">
+        select * from `research_project_situation_1_2_1_shiqi`;
+    </select>
+
+    <select id="getInfoByCollege" resultType="com.ccnu.phdsic.entities.ResearchProjectSituation_1_2_1_shiqi">
+        select * from `research_project_situation_1_2_1_shiqi` where college = #{collegeName};
+    </select>
+</mapper>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccnu.phdsic.mapper.Mapper_2_1_2">
+    <insert id="insert213">
+
+
+        insert into `graduate_education_teaching_reform_research_project_2_1_2_shiqi`  values (
+
+         #{tutorIdentificationCode},
+         #{projectName},
+     #{projectDate},
+    #{projectStatus},
+     #{endOfDate},
+    #{projectLevel},
+     #{projectFunding},
+     #{sourcesOfFunding},
+     #{role}
+
+
+
+
+
+        );
+    </insert>
+    <update id="updateinfo_2_1_2">
+
+    update `graduate_education_teaching_reform_research_project_2_1_2_shiqi` set
+    `project_name` = #{projectName},
+    `project_date` = #{projectDate},
+    `project_status` = #{projectStatus},
+    `end_of_date` = #{endOfDate},
+    `project_level` = #{projectLevel},
+    `project_funding` = #{projectFunding},
+    `sources_of_funding` = #{sourcesOfFunding},
+    `role` = #{role}
+    where `tutor_identification_code` = #{tutorIdentificationCode}
+
+
+    </update>
+    <delete id="delete212">
+    delete from `graduate_education_teaching_reform_research_project_2_1_2_shiqi` where `tutor_identification_code` =#{phdId}
+    </delete>
+    <delete id="deleteAll">
+        delete from `graduate_education_teaching_reform_research_project_2_1_2_shiqi`;
+
+    </delete>
+    <delete id="deleteById">
+
+        delete from `graduate_education_teaching_reform_research_project_2_1_2_shiqi` where  `tutor_identification_code` = #{id}
+    </delete>
+    <select id="getTable_2_1_2"
+            resultType="com.ccnu.phdsic.entities.GraduateEducationTeachingReformResearchProject_2_1_2_shiqi">
+        select * from `graduate_education_teaching_reform_research_project_2_1_2_shiqi` where tutor_identification_code = #{phdId};
+    </select>
+
+
+    <select id="getAll"
+            resultType="com.ccnu.phdsic.entities.GraduateEducationTeachingReformResearchProject_2_1_2_shiqi">
+        select * from `graduate_education_teaching_reform_research_project_2_1_2_shiqi`;
+    </select>
+    <select id="getInfoByCollege"
+            resultType="com.ccnu.phdsic.entities.GraduateEducationTeachingReformResearchProject_2_1_2_shiqi">
+        select * from `graduate_education_teaching_reform_research_project_2_1_2_shiqi` where college = #{collegeName};
+    </select>
+</mapper>

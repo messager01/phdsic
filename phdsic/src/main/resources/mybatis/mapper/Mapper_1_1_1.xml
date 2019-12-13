@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccnu.phdsic.mapper.Mapper_1_1_1">
+  <insert id="insertDoctorTutorInformation_1_1_1_shidian">
+
+    insert into `doctor_tutor_information_1_1_1_shidian` values (
+
+    #{tutorIdentificationCode},
+    #{name},
+    #{college},
+    #{country},
+    #{typeOfCertificate},
+    #{certificateNumber},
+    #{birthday},
+    #{sex},
+    #{nationality},
+    #{politicalStatus},
+    #{highestEducation},
+    #{obtainHighestEducationCountry},
+    #{institutionWithHighestDegree},
+    #{majorHighestDegree},
+    #{highestDegreeLevel},
+    #{nameByHighestDegree},
+    #{countryWithTheHighestDegree},
+    #{highestDegreeInstitution}
+
+
+    )
+
+
+
+  </insert>
+  <update id="updateinfo_1_1_1">
+
+  update `doctor_tutor_information_1_1_1_shidian` set
+    `name` = #{name},
+    `college` = #{college},
+    `country` = #{country},
+    `type_of_certificate` = #{typeOfCertificate},
+    `certificate_number` = #{certificateNumber},
+    `birthday` = #{birthday},
+    `sex` = #{sex},
+    `nationality` = #{nationality},
+    `political_status` = #{politicalStatus},
+    `highest_education` = #{highestEducation},
+    `obtain_highest_education_country` = #{obtainHighestEducationCountry},
+    `institution_with_highest_degree` = #{institutionWithHighestDegree},
+    `major_highest_degree` = #{majorHighestDegree},
+    `highest_degree_level` = #{highestDegreeLevel},
+    `name_by_highest_degree` = #{nameByHighestDegree},
+    `country_with_the_highest_degree` = #{countryWithTheHighestDegree},
+    `highest_degree_institution` = #{highestDegreeInstitution}
+
+    where tutor_identification_code = #{tutorIdentificationCode}
+    </update>
+  <delete id="deleteAll">
+    delete  from `doctor_tutor_information_1_1_1_shidian`;
+  </delete>
+    <delete id="deleteById">
+          delete  from `doctor_tutor_information_1_1_1_shidian` where `tutor_identification_code` = #{id} ;
+    </delete>
+
+
+    <select id="getPHDIdByIdNum" resultType="java.lang.String">
+        select `tutor_identification_code` from  doctor_tutor_information_1_1_1_shidian where `certificate_number` = #{idNum};
+    </select>
+
+
+    <select id="getTable_1_1_1" resultType="com.ccnu.phdsic.entities.DoctorTutorInformation_1_1_1_shidian">
+        select * from  doctor_tutor_information_1_1_1_shidian where `tutor_identification_code` = #{phdId};
+    </select>
+
+    <select id="getNameByIdNum" resultType="java.lang.String">
+         select `name` from  doctor_tutor_information_1_1_1_shidian where `tutor_identification_code` = #{idNum};
+    </select>
+
+    <select id="getPHDNameAndCollege"
+            resultType="com.ccnu.phdsic.entities.DoctorTutorInformation_1_1_1_shidian">
+         select * from  doctor_tutor_information_1_1_1_shidian where `tutor_identification_code` = #{idNum}
+    </select>
+
+
+    <select id="getAll" resultType="com.ccnu.phdsic.entities.DoctorTutorInformation_1_1_1_shidian">
+
+        select * from `doctor_tutor_information_1_1_1_shidian`;
+
+    </select>
+
+
+    <select id="getInfoByCollege" resultType="com.ccnu.phdsic.entities.DoctorTutorInformation_1_1_1_shidian">
+
+        select tutor_identification_code from `doctor_tutor_information_1_1_1_shidian` where college = #{collegeName}
+    </select>
+
+    <select id="getIdByCollege" resultType="java.lang.String">
+      select  `tutor_identification_code` from `doctor_tutor_information_1_1_1_shidian` where college = #{collegeName};
+    </select>
+  
+  
+  <select id="checkDownLoad" resultType="com.ccnu.phdsic.entities.Admin">
+    select * from `admin` where unit = #{unit};
+  </select>
+  <select id="checkUpLoad" resultType="com.ccnu.phdsic.entities.Admin">
+
+    select * from `admin` where id = #{id};
+  </select>
+</mapper>

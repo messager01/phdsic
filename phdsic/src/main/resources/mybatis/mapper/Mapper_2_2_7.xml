@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccnu.phdsic.mapper.Mapper_2_2_7">
+    <insert id="insert227">
+
+        insert into `relying_on_scientific_research_platform_2_2_7_shidian` values (
+         #{tutorIdentificationCode},
+        #{researchPlatformName},
+       #{researchPlatformLevel},
+        #{researchPlatformCategory},
+        #{provincialAndMinisterialAuthorities},
+       #{serve}
+
+
+
+        );
+
+    </insert>
+    <update id="updateinfo_2_2_7">
+
+        update `relying_on_scientific_research_platform_2_2_7_shidian` set
+
+        research_platform_name = #{researchPlatformName},
+      research_platform_level =   #{researchPlatformLevel},
+     research_platform_category =    #{researchPlatformCategory},
+      provincial_and_ministerial_authorities =   #{provincialAndMinisterialAuthorities},
+      serve =   #{serve}
+
+where tutor_identification_code = #{tutorIdentificationCode}
+        ;
+
+    </update>
+    <delete id="delete227">
+               delete  from `relying_on_scientific_research_platform_2_2_7_shidian` where tutor_identification_code = #{phdId}
+    </delete>
+    <delete id="deleteAll">
+        delete  from `relying_on_scientific_research_platform_2_2_7_shidian`;
+
+    </delete>
+    <delete id="deleteById">
+        delete  from `relying_on_scientific_research_platform_2_2_7_shidian` where tutor_identification_code = #{id}
+    </delete>
+    <select id="getTable_2_2_7"
+            resultType="com.ccnu.phdsic.entities.RelyingOnScientificResearchPlatform_2_2_7_shidian">
+        select * from `relying_on_scientific_research_platform_2_2_7_shidian` where tutor_identification_code = #{phdId}
+    </select>
+    <select id="getAll"
+            resultType="com.ccnu.phdsic.entities.RelyingOnScientificResearchPlatform_2_2_7_shidian">
+        select * from  `relying_on_scientific_research_platform_2_2_7_shidian`;
+    </select>
+    <select id="getInfoByCollege"
+            resultType="com.ccnu.phdsic.entities.RelyingOnScientificResearchPlatform_2_2_7_shidian">
+        select * from `relying_on_scientific_research_platform_2_2_7_shidian` where college = #{collegeName}
+    </select>
+</mapper>

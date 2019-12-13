@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccnu.phdsic.mapper.Mapper_2_1_5">
+    <insert id="insert215">
+
+        insert into `guided_doctoral_students_awards_2_1_5_shiqi` values (
+         #{tutorIdentificationCode},
+        #{awardTopic},
+    #{awardName},
+     #{certificateNumber},
+     #{awardLevel},
+     #{awardGrade},
+    #{awardingUnit},
+    #{awardDoctoralStudentIdentificationCode},
+    #{instructorOrder}
+
+        );
+
+
+    </insert>
+    <update id="updateinfo_2_1_5">
+
+     update `guided_doctoral_students_awards_2_1_5_shiqi` set
+
+     `award_topic` = #{awardTopic},
+     `award_name` = #{awardName},
+     `certificate_number` = #{certificateNumber},
+     `award_level` = #{awardLevel},
+     `award_grade` = #{awardGrade},
+    `awarding_unit` = #{awardingUnit},
+    `award_doctoral_student_identification_code` = #{awardDoctoralStudentIdentificationCode},
+    `instructor_order` = #{instructorOrder}
+    where `tutor_identification_code` = #{tutorIdentificationCode}
+
+    </update>
+    <delete id="delete215">
+
+                delete  from `guided_doctoral_students_awards_2_1_5_shiqi` where tutor_identification_code = #{phdId};
+    </delete>
+    <delete id="deleteAll">
+        delete from `guided_doctoral_students_awards_2_1_5_shiqi`;
+    </delete>
+    <delete id="deleteById">
+        delete  from `guided_doctoral_students_awards_2_1_5_shiqi` where `tutor_identification_code` = #{id}
+    </delete>
+
+    <select id="getTable_2_1_5" resultType="com.ccnu.phdsic.entities.GuidedDoctoralStudentsAwards_2_1_5_shiqi">
+        select * from `guided_doctoral_students_awards_2_1_5_shiqi` where tutor_identification_code = #{phdId};
+    </select>
+    <select id="getAll" resultType="com.ccnu.phdsic.entities.GuidedDoctoralStudentsAwards_2_1_5_shiqi">
+
+        select * from `guided_doctoral_students_awards_2_1_5_shiqi`;
+    </select>
+    <select id="getInfoByCollege"
+            resultType="com.ccnu.phdsic.entities.GuidedDoctoralStudentsAwards_2_1_5_shiqi">
+        select * from `guided_doctoral_students_awards_2_1_5_shiqi` where college = #{collegeName};
+    </select>
+</mapper>

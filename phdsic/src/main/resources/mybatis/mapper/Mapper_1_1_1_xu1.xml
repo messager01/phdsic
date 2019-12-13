@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccnu.phdsic.mapper.Mapper_1_1_1_xu1">
+  <insert id="insertDoctorTutorInformation_1_1_1_xu1_shidian">
+
+    insert into `doctor_tutor_information_1_1_1_xu1_shidian` values (
+
+      #{tutorIdentificationCode},
+      #{participationDate},
+      #{firstDateOfAdmissionToDoctoralStudents},
+      #{inTheStaff},
+      #{signContractWithInstitution},
+      #{employmentPeriod},
+      #{fullTimeJobInUnit},
+      #{fullTimeJobUnit},
+      #{isRetire},
+      #{professionalAndTechnicalPositions},
+      #{postRating},
+      #{partyAndGovernmentDuties},
+      #{overseasTrainingExperience},
+      #{nameOfSelectedTalentProjectAndYearOfSelection},
+      #{haveOtherIndustryTechnicalTitles},
+      #{haveAcademicPartTimeAtHomeAndAbroad}
+
+
+
+
+    )
+
+
+
+  </insert>
+  <update id="updateinfo_1_1_1_xu1">
+
+    update `doctor_tutor_information_1_1_1_xu1_shidian` set
+  `participation_date` = #{participationDate},
+  `first_date_of_admission_to_doctoral_students` = #{firstDateOfAdmissionToDoctoralStudents},
+  `in_the_staff` = #{inTheStaff},
+  `sign_contract_with_institution` = #{signContractWithInstitution},
+  `employment_period` = #{employmentPeriod},
+  `full_time_job_in_unit` = #{fullTimeJobInUnit},
+  `full_time_job_unit` = #{fullTimeJobUnit},
+  `is_retire` = #{isRetire},
+  `professional_and_technical_positions` = #{professionalAndTechnicalPositions},
+  `post_rating` = #{postRating},
+  `party_and_government_duties` = #{partyAndGovernmentDuties},
+  `overseas_training_experience` = #{overseasTrainingExperience},
+  `name_of_selected_talent_project_and_year_of_selection` = #{nameOfSelectedTalentProjectAndYearOfSelection},
+  `have_other_industry_technical_titles` = #{haveOtherIndustryTechnicalTitles},
+  `have_academic_part_time_at_home_and_abroad` = #{haveAcademicPartTimeAtHomeAndAbroad}
+  where tutor_identification_code = #{tutorIdentificationCode}
+    </update>
+  <delete id="deleteAll">
+    delete from `doctor_tutor_information_1_1_1_xu1_shidian`;
+
+  </delete>
+    <delete id="deleteById">
+      delete  from `doctor_tutor_information_1_1_1_xu1_shidian` where `tutor_identification_code` = #{id}
+    </delete>
+
+    <select id="getTable_1_1_1xu1"
+            resultType="com.ccnu.phdsic.entities.DoctorTutorInformation_1_1_1_xu1_shidian">
+        select * from `doctor_tutor_information_1_1_1_xu1_shidian` where tutor_identification_code = #{phdId};
+    </select>
+    <select id="getAll" resultType="com.ccnu.phdsic.entities.DoctorTutorInformation_1_1_1_xu1_shidian">
+
+        select * from `doctor_tutor_information_1_1_1_xu1_shidian`;
+    </select>
+
+    <select id="getInfoByCollege"
+            resultType="com.ccnu.phdsic.entities.DoctorTutorInformation_1_1_1_xu1_shidian">
+
+        select * from `doctor_tutor_information_1_1_1_xu1_shidian` where college = #{collegeName}
+    </select>
+</mapper>

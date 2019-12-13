@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccnu.phdsic.mapper.Mapper_2_1_3">
+    <insert id="insert213">
+
+        insert into `publishing_textbook_situation_2_1_3_shqi`  values (
+         #{tutorIdentificationCode},
+       #{textbookName},
+        #{situationWithSelectedTextbooks},
+         #{publishingHouse},
+         #{publisherCountry},
+         #{totalNumberOfWords},
+         #{numberOfIssues},
+        #{publicationDate},
+         #{bookNumber},
+         #{publishingLanguage},
+         #{role}
+
+
+        );
+    </insert>
+    <update id="updateinfo_2_1_3">
+
+
+        update `publishing_textbook_situation_2_1_3_shqi` set
+        `textbook_name` = #{textbookName},
+        `situation_with_selected_textbooks` = #{situationWithSelectedTextbooks},
+        `publishing_house` = #{publishingHouse},
+        `publisher_country` = #{publisherCountry},
+        `total_number_of_words` = #{totalNumberOfWords},
+        `number_of_issues` = #{numberOfIssues},
+        `publication_date` = #{publicationDate},
+        `book_number` = #{bookNumber},
+        `publishing_language` = #{publishingLanguage},
+        `role` = #{role}
+        where `tutor_identification_code` = #{tutorIdentificationCode}
+
+
+
+    </update>
+    <delete id="delete213">
+                delete  from `publishing_textbook_situation_2_1_3_shqi` where tutor_identification_code = #{phdId};
+    </delete>
+    <delete id="deleteAll">
+        delete from `publishing_textbook_situation_2_1_3_shqi`;
+    </delete>
+
+    <delete id="deleteById">
+      delete  from `publishing_textbook_situation_2_1_3_shqi`  where tutor_identification_code = #{id}
+    </delete>
+
+
+    <select id="getTable_2_1_3" resultType="com.ccnu.phdsic.entities.PublishingTextbookSituation_2_1_3shqi">
+        select * from `publishing_textbook_situation_2_1_3_shqi` where tutor_identification_code = #{phdId};
+    </select>
+    <select id="getAll" resultType="com.ccnu.phdsic.entities.PublishingTextbookSituation_2_1_3shqi">
+        select * from `publishing_textbook_situation_2_1_3_shqi`;
+
+    </select>
+    <select id="getInfoByCollege" resultType="com.ccnu.phdsic.entities.PublishingTextbookSituation_2_1_3shqi">
+        select * from `publishing_textbook_situation_2_1_3_shqi` where  college = #{collegeName}
+    </select>
+</mapper>
